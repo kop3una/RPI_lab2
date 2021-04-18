@@ -16,7 +16,7 @@ body {
   color: #000000;
   background-size: cover;
   background-position: center center;
-  transition: background-image 1s ease-in-out;
+  transition: background-image .5s ease-in-out;
 }
 
 
