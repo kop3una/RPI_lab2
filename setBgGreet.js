@@ -1,5 +1,5 @@
 const greeting = document.querySelector('.greeting'),
-    btn = document.querySelector('.btn'),
+    btn = document.querySelector('.btn_bg'),
     body = document.querySelector('body');
 
 let i = 0;
@@ -13,20 +13,32 @@ const timesDay = ['morning/', 'day/', 'evening/', 'night/'];
 function imagesTOD() {
     function createImageTOD(Arr) {
         for (let i = 0; i < 6; i++) {
-            Arr.push(images[Math.floor(Math.random() * 21)]);
+            Arr.push(images[Math.floor(Math.random() * 20)]);
         }
-
     }
     createImageTOD(imagesDay);
 }
 
-function changeImageHour(){
-    let time = new Date (),
+function startBg() {
+    let time = new Date(),
+        hour = time.getHours();
+    console.log(hour);
+    console.log(imagesDay);
+    let src;
+    console.log(1);
+    src = base + timesOfDay(getTimesOfDay(), 0) + imagesDay[hour % 6];
+    viewBgImage(src);
+  
+    
+}
+
+function changeImageHour() {
+    let time = new Date(),
         hour = time.getHours();
     let src;
     if (newHour()) {
-    src = base + timesOfDay(getTimesOfDay(),0) + imagesDay[hour % 6];
-    viewBgImage(src);
+        src = base + timesOfDay(getTimesOfDay(), 0) + imagesDay[hour % 6];
+        viewBgImage(src);
     }
     setTimeout(changeImageHour, 1000);
 }
@@ -58,8 +70,7 @@ function newHour() {
         seconds = time.getSeconds();
     if (seconds == 0 && minute == 0) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -107,7 +118,7 @@ function timesOfDay(TOD, n) {
 function viewBgImage(src) {
     const img = new Image();
     img.src = src;
-    img.onload = function () {
+    img.onload = function() {
         body.style.backgroundImage = `url(${src})`;
     };
 }
@@ -121,13 +132,13 @@ function getImage() {
     i++;
     console.log(imageSrc);
     viewBgImage(imageSrc);
-
+    //btn.disabled = true;
+    //setTimeout(function() { btn.disabled = false }, 1000);
 }
 
 btn.addEventListener('click', getImage);
 
-setGreet();
-viewBgImage();
-getImage();
 imagesTOD();
+setGreet();
 changeImageHour();
+startBg();

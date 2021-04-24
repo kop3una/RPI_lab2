@@ -5,20 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/owfont-regular.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Lab2</title>
 </head>
 <body>
   <time class="time"></time>
-  <h1>
+  <h2>
     <span class="date"></span><br \>
     <span class="greeting"></span>
     <span class="name" contenteditable="true"></span>
-  </h1>
-  <h2>What Is Your Focus For Today?</h2>
+  </h2>
+  <h2 class="focustoday">What Is Your Focus For Today?</h2>
   <h2 class="focus" contenteditable="true"></h2>
-  <button class="btn"></button>
+  <button class="btn_bg"></button>
+<figure class="quote">
+  <blockquote class="text">
+  </blockquote>
+     <button class="btn_quotes"></button>
+</figure>   
+    
+<h1 class="weather_title">Weather</h1>
+<div class="city" contenteditable="true"></div>
+<i class="weather-icon owf"></i>
+<div class="weather-description"></div>
+<div class="temperature"></div>
+<div class="humidity"></div>
+<div class="wind"></div>
+    
   <script src="setBgGreet.js" async></script>
   <script src="timeDate.js" async></script>
   <script src="nameFocus.js" async></script>
+  <script src="quotes.js" async></script>
+  <script src="weather.js" async></script>
 </body>
 </html>
